@@ -1,4 +1,4 @@
-<h1 align:"center">REST-Rant Project</h1>
+<h1 style="text-align: center">REST-Rant Project</h1>
 
 ![Home page](./assets/presentation.PNG)
 
