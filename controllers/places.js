@@ -27,7 +27,13 @@ router.get('/new', (req, res) => {
 
 router.get('/:id', (req, res) => {
     let page = places[req.params.id];
+
     res.render('places/id', { page })
+});
+
+router.get('/:id/edit', (req, res) => {
+    let page = places[req.params.id];
+    res.render('places/editPlace', { page })
 });
 
 module.exports = router;
