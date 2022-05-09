@@ -19,5 +19,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log('Active')
+    console.log('Active at port 3000')
 });
