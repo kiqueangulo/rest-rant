@@ -1,6 +1,6 @@
 <h1 style="text-align: center">REST-Rant Project</h1>
 
-![Home page](./assets/presentation.PNG)
+![Home page](./public/images/presentation.PNG)
 
 *Note: This project is not finished yet. The illustrations are a sample of how the app will look like.*
 
