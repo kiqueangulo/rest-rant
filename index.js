@@ -4,9 +4,10 @@ const PORT = process.env.PORT;
 const express = require('express');
 const app = express();
 
-// This defines the "view engine" I'm gonna use. In this case, JSX
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
+
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.render('home')
@@ -19,5 +20,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log('Active at port 3000')
+    console.log('Active at port', PORT)
 });
