@@ -7,6 +7,7 @@ function error404() {
             <main>
                 <h1>404: PAGE NOT FOUND</h1>
                 <p>Sorry, we can't find this page.</p>
+                <img src="/images/not-found.jpg" alt="Ostrich that looks like screaming" />
             </main>
         </Def>
     )
