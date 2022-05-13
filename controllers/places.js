@@ -25,6 +25,11 @@ router.get('/new', (req, res) => {
     res.render('places/new')
 });
 
+router.post('/', (req, res) => {
+    console.log(req.body);
+    res.send('POST /places')
+});
+
 router.get('/:id', (req, res) => {
     let page = places[req.params.id];
 
