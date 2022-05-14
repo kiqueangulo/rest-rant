@@ -7,9 +7,22 @@ function idInfo(data) {
     return (
         <Def>
             <main>
-                <h1>Specific Place</h1>
-                <h2>{info.name}</h2>
                 <img src={info.pic} alt={info.name} />
+                <div>
+                    <h1>{info.name}</h1>
+                    <div>
+                        <h2>Rating</h2>
+                        <p>Not Rated</p>
+                    </div>
+                    <div>
+                        <h2>Description</h2>
+                        <p>Located in {info.city}, {info.state} and serving {info.cuisines}</p>
+                    </div>
+                </div>
+                <div>
+                    <h2>Comments</h2>
+                    <p>No comments yet!</p>
+                </div>
             </main>
         </Def>
     )
