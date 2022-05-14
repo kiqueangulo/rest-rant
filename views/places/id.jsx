@@ -23,8 +23,8 @@ function idInfo(data) {
                     <h2>Comments</h2>
                     <p>No comments yet!</p>
                 </div>
-                <a href="" className='btn btn-warning'>Edit</a>
-                <form action="" method='POST'>
+                <a href={`/places/${data.id}/edit`} className='btn btn-warning'>Edit</a>
+                <form action={`/places/${data.id}?_method=DELETE`} method='POST'>
                     <button type='submit' className='btn btn-danger'>Delete</button>
                 </form>
             </main>
