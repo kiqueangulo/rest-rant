@@ -29,9 +29,15 @@ router.post('/', (req, res) => {
 
 // Show specific
 router.get('/:id', (req, res) => {
-    let page = places[req.params.id];
+    let id = Number(req.params.id);
 
-    res.render('places/id', { page })
+    if (isNaN(id)) {
+        res.render('error404')
+    } else if (!places[id]) {
+        res.render('error404')
+    } else {
+        res.render('places/id', { place: places[id] })
+    }
 });
 
 // Edit

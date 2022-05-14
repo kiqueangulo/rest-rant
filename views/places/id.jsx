@@ -2,7 +2,7 @@ const React = require('react');
 const Def = require('../default.jsx');
 
 function idInfo(data) {
-    let info = data.page;
+    let info = data.place;
     
     return (
         <Def>
