@@ -5,12 +5,33 @@ function edit(data) {
     return (
         <Def>
             <main>
-                <h2>{ data.place.name }</h2>
-                <form action="">
-                    <label htmlFor="">Edit Page</label>
-                    <br />
-                    <input type="text" />
-                    <button>EDIT</button>
+                <h1>Edit Place</h1>
+                <form action={`/places/${data.id}?_method=PUT`} method='POST'>
+                    <div className='row'>
+                        <div  className='form-group col-sm-6'>
+                            <label htmlFor="name">Place Name</label>
+                            <input className='form-control' type="text" id='name' name='name' value={data.place.name} required />
+                        </div>
+                        <div  className='form-group col-sm-6'>
+                            <label htmlFor="pic">Place Picture</label>
+                            <input className='form-control' type="url" id='pic' name='pic' value={data.place.pic} />
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div  className='form-group col-sm-6'>
+                            <label htmlFor="city">City</label>
+                            <input className='form-control' type="text" id='city' name='city' value={data.place.city} />
+                        </div>
+                        <div  className='form-group col-sm-6'>
+                            <label htmlFor="state">State</label>
+                            <input className='form-control' type="text" id='state' name='state' value={data.place.state} />
+                        </div>
+                    </div>
+                    <div  className='form-group'>
+                        <label htmlFor="cuisines">Cuisines</label>
+                        <input className='form-control' type="text" id='cuisines' name='cuisines' value={data.place.cuisines} required />
+                    </div>
+                    <input  className='btn btn-primary' type="submit" value="Add Place" />
                 </form>
             </main>
         </Def>
