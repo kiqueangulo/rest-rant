@@ -5,7 +5,7 @@ function edit(data) {
     return (
         <Def>
             <main>
-                <h2>{ data.page.name }</h2>
+                <h2>{ data.place.name }</h2>
                 <form action="">
                     <label htmlFor="">Edit Page</label>
                     <br />
