@@ -23,6 +23,10 @@ function idInfo(data) {
                     <h2>Comments</h2>
                     <p>No comments yet!</p>
                 </div>
+                <a href="" className='btn btn-warning'>Edit</a>
+                <form action="" method='POST'>
+                    <button type='submit' className='btn btn-danger'>Delete</button>
+                </form>
             </main>
         </Def>
     )
