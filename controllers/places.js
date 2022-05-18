@@ -27,7 +27,12 @@ router.get('/new', (req, res) => {
 
 // Show specific
 router.get('/:id', (req, res) => {
-    res.send('GET /places/:id stub')
+    db.PLace.findById(req.params.id)
+        .then(place => res.render('places/id', { place }))
+        .catch(err => {
+            console.log(`err ${err}`);
+            res.render('error404')
+        })
 });
 
 // Redirect from Edit to Show (id)
@@ -42,7 +47,12 @@ router.delete('/:id', (req, res) => {
 
 // Edit
 router.get('/:id/edit', (req, res) => {
-    res.send('GET edit form stub')
+    db.PLace.findById(req.params.id)
+        .then(place => res.render('places/editPlace', { place }))
+        .catch(err => {
+            console.log(`err ${err}`);
+            res.render('error404')   // It's throwing an error with _id I don't know why yet
+    })
 });
 
 module.exports = router;
