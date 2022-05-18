@@ -51,7 +51,7 @@ router.get('/:id/edit', (req, res) => {
         .then(place => res.render('places/editPlace', { place }))
         .catch(err => {
             console.log(`err ${err}`);
-            res.render('error404')   // It's throwing an error with _id I don't know why yet
+            res.render('error404')
     })
 });
 

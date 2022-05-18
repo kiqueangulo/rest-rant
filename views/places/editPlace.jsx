@@ -31,7 +31,7 @@ function edit(data) {
                         <label htmlFor="cuisines">Cuisines</label>
                         <input className='form-control' type="text" id='cuisines' name='cuisines' value={data.place.cuisines} required />
                     </div>
-                    <input  className='btn btn-primary' type="submit" value="Add Place" />
+                    <input  className='btn btn-primary' type="submit" value="Save" />
                 </form>
             </main>
         </Def>
