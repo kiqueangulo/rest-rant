@@ -3,7 +3,7 @@ const db = require('../models');
 
 // Index (show restaurants)
 router.get('/', (req, res) => {
-    db.PLace.find()
+    db.Place.find()
         .then( places => res.render('places/index', { places }))
         .catch( err => {
             console.log(err);
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    db.PLace.create(req.body)
+    db.Place.create(req.body)
         .then(() => res.redirect('/places'))
         .catch(err => {
             console.log(`err ${err}`);
@@ -27,7 +27,7 @@ router.get('/new', (req, res) => {
 
 // Show specific
 router.get('/:id', (req, res) => {
-    db.PLace.findById(req.params.id)
+    db.Place.findById(req.params.id)
         .then(place => res.render('places/id', { place }))
         .catch(err => {
             console.log(`err ${err}`);
@@ -47,7 +47,7 @@ router.delete('/:id', (req, res) => {
 
 // Edit
 router.get('/:id/edit', (req, res) => {
-    db.PLace.findById(req.params.id)
+    db.Place.findById(req.params.id)
         .then(place => res.render('places/editPlace', { place }))
         .catch(err => {
             console.log(`err ${err}`);

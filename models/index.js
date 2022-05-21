@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -7,4 +8,4 @@ mongoose.connect(process.env.MONGO_URI, {
   console.log(`Connected to mongo: ${process.env.MONGO_URI}`)
 ));
 
-module.exports.PLace = require('./places');
+module.exports.Place = require('./places');
