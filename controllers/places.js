@@ -37,12 +37,15 @@ router.get('/:id', (req, res) => {
 
 // Redirect from Edit to Show (id)
 router.put('/:id', (req, res) => {
-    res.send('PUT /places/:id stub')
+    db.Place.findByIdAndUpdate(req.params.id, req.body, { runValidatorsL: true })
+        .then(updatedRest => res.redirect(`/places/${req.params.id}`))
+        .catch(err => res.render('error404'))
 });
 
 // Delete
 router.delete('/:id', (req, res) => {
-    res.send('DELETE /places/:id stub')
+    db.Place.findByIdAndDelete(req.params.id)
+        .then(deletedRest => res.status(303).redirect('/places'))
 });
 
 // Edit
