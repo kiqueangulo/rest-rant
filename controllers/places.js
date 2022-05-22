@@ -39,7 +39,6 @@ router.get('/:id', (req, res) => {
     db.Place.findById(req.params.id)
         .populate('comments')
         .then(place => {
-            console.log(place.comments);
             res.render('places/id', { place })
         })
         .catch(err => {
@@ -69,6 +68,23 @@ router.get('/:id/edit', (req, res) => {
             console.log(`err ${err}`);
             res.render('error404')
     })
+});
+
+// Create comment
+router.post('/:id/comment', (req, res) => {
+    req.body.rant = req.body.rant ? true : false;  // Change the on/off of the checkbox to true/false
+    
+    db.Place.findById(req.params.id)  // Find the current place
+        .then(place => {
+            db.Comment.create(req.body)  // Create the comment in the Comment collection
+                .then(comment => {
+                    place.comments.push(comment.id);  // Push the id to the comments field in Place to make the child reference
+                    place.save()
+                        .then(() => res.redirect(`/places/${req.params.id}`))
+                })
+                .catch(err => res.render('error404'))
+        })
+        .catch(err => res.render('error404'))
 });
 
 module.exports = router;

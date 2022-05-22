@@ -11,7 +11,7 @@ function idInfo(data) {
     if (data.place.comments.length) {
         comments = data.place.comments.map(c => {
             return (
-                <div className='border'>
+                <div className='border' key={c.id}>
                     <h2 className='rant'>
                         {c.rant ? 'Rant! >:v' : 'Rave! <3'}
                     </h2>
@@ -57,6 +57,30 @@ function idInfo(data) {
                 <div>
                     <h2>Comments</h2>
                     {comments}
+                </div>
+                <div>
+                    <h2>Got Your Own Rant or Rave?</h2>
+                    <form action={`/places/${data.place.id}/comment`} method='POST'>
+                        <div className='form-group'>
+                            <label htmlFor="content">Content</label>
+                            <input className='form-control' type="text" id='content' name='content' required />
+                        </div>
+                        <div className='row'>
+                            <div className='form-group'>
+                                <label htmlFor="author">Author</label>
+                                <input className='form-control' type="text" id='author' name='author' required />
+                            </div>
+                            <div className='form-group'>
+                                <label htmlFor="rating">Star Rating</label>
+                                <input type="range" step='0.5' name="stars" id="rating" min='0' max='5' required />
+                            </div>
+                            <div className='form-group'>
+                                <label htmlFor="rant">Rant?</label>
+                                <input type="checkbox" name="rant" id="rant" />
+                            </div>
+                        </div>
+                        <input type="submit" value="Add Comment" />
+                    </form>
                 </div>
             </main>
         </Def>
