@@ -15,8 +15,17 @@ router.post('/', (req, res) => {
     db.Place.create(req.body)
         .then(() => res.redirect('/places'))
         .catch(err => {
-            console.log(`err ${err}`);
-            res.render('error404')
+            if (err && err.name == 'ValidationError') {
+                let message = 'Validation Error: ';
+
+                for (let field in err.errors) {
+                    message += `${field} was ${err.errors[field].value}. ${err.errors[field].message}`
+                };
+
+                res.render('places/new', { message })
+            } else {
+                res.render('error404')
+            }
         })
 });
 
@@ -37,6 +46,7 @@ router.get('/:id', (req, res) => {
 
 // Redirect from Edit to Show (id)
 router.put('/:id', (req, res) => {
+    // It's not catching the validation errors
     db.Place.findByIdAndUpdate(req.params.id, req.body, { runValidatorsL: true })
         .then(updatedRest => res.redirect(`/places/${req.params.id}`))
         .catch(err => res.render('error404'))
