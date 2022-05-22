@@ -8,7 +8,10 @@ function idInfo(data) {
         <Def>
             <main>
                 <div className='row'>
-                    <img className='col-sm-6' src={info.pic} alt={info.name} />
+                    <div className='col-sm-6'>
+                        <img src={info.pic} alt={info.name} />
+                        <h3>Located in {info.city}, {info.state}</h3>
+                    </div>
                     <div className='col-sm-6'>
                         <h1>{info.name}</h1>
                         <div>
@@ -17,7 +20,10 @@ function idInfo(data) {
                         </div>
                         <div>
                             <h2>Description</h2>
-                            <p>Located in {info.city}, {info.state} and serving {info.cuisines}</p>
+                            <h3>
+                                {info.showEstablished()}
+                            </h3>
+                            <h4>Serving {info.cuisines}</h4>
                         </div>
                         <div className='row'>
                             <a href={`/places/${data.place.id}/edit`} className='btn btn-warning col-sm-6'>Edit</a>
