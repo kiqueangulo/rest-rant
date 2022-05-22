@@ -27,9 +27,15 @@ function edit(data) {
                             <input className='form-control' type="text" id='state' name='state' defaultValue={data.place.state} />
                         </div>
                     </div>
-                    <div  className='form-group'>
-                        <label htmlFor="cuisines">Cuisines</label>
-                        <input className='form-control' type="text" id='cuisines' name='cuisines' defaultValue={data.place.cuisines} required />
+                    <div className='row'>
+                        <div  className='form-group col-sm-6'>
+                            <label htmlFor="cuisines">Cuisines</label>
+                            <input className='form-control' type="text" id='cuisines' name='cuisines' defaultValue={data.place.cuisines} required />
+                        </div>
+                        <div  className='form-group col-sm-6'>
+                            <label htmlFor="founded">Cuisines</label>
+                            <input className='form-control' type="number" id='founded' name='founded' min='1673' max='2023' defaultValue={data.place.founded} required />
+                        </div>
                     </div>
                     <input  className='btn btn-primary' type="submit" value="Save" />
                 </form>

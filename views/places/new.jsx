@@ -29,7 +29,7 @@ function newPage() {
                     </div>
                     <div className="form-group">
                         <label htmlFor="founded">Founded Year</label>
-                        <input className="form-control" id="founded" name="founded" />
+                        <input type="number" className="form-control" id="founded" name="founded" defaultValue={new Date().getFullYear()} />
                     </div>
                     <input  className='btn btn-primary' type="submit" value="Add Place" />
                 </form>
