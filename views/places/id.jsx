@@ -17,9 +17,15 @@ function idInfo(data) {
             return tot + c.stars
         }, 0)
 
-        let avergaeRating = sumRatings / data.place.comments.length
+        let avergaeRating = Math.round(sumRatings / data.place.comments.length)
 
-        rating = <h3>{Math.round(avergaeRating)} stars</h3>
+        // The stars don't render
+        let stars = ''
+        for (let i = 0; i < avergaeRating; i++) {
+            stars += <i class="fa fa-star"></i>
+        }
+        
+        rating = <h3>{stars} stars</h3>
 
         comments = data.place.comments.map(c => {
             return (
