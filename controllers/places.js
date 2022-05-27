@@ -57,7 +57,7 @@ router.put('/:id', (req, res) => {
 // Delete
 router.delete('/:id', (req, res) => {
     db.Place.findByIdAndDelete(req.params.id)
-        .then(deletedRest => res.status(303).redirect('/places'))
+        .then(() => res.status(303).redirect('/places'))
         .catch(err => {
             console.log('error', err);
             res.render('error404')
@@ -89,6 +89,16 @@ router.post('/:id/comment', (req, res) => {
                 .catch(err => res.render('error404'))
         })
         .catch(err => res.render('error404'))
+});
+
+// Delete comment
+router.delete('/:id/comment/:commentId', (req, res) => {
+    db.Comment.findByIdAndDelete(req.params.commentId)
+        .then(() => res.status(303).redirect(`/places/${req.params.id}`))
+        .catch(err => {
+            console.log(`error ${err}`);
+            res.render('error404')
+        })
 });
 
 module.exports = router;
