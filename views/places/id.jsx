@@ -19,7 +19,7 @@ function idInfo(data) {
 
         let avergaeRating = sumRatings / data.place.comments.length
 
-        rating = <h3>{avergaeRating} stars</h3>
+        rating = <h3>{Math.round(avergaeRating)} stars</h3>
 
         comments = data.place.comments.map(c => {
             return (
