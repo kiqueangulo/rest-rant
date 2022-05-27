@@ -33,7 +33,7 @@ function edit(data) {
                             <input className='form-control' type="text" id='cuisines' name='cuisines' defaultValue={data.place.cuisines} required />
                         </div>
                         <div  className='form-group col-sm-6'>
-                            <label htmlFor="founded">Cuisines</label>
+                            <label htmlFor="founded">Founded</label>
                             <input className='form-control' type="number" id='founded' name='founded' min='1673' max='2023' defaultValue={data.place.founded} required />
                         </div>
                     </div>

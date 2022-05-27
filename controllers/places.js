@@ -50,7 +50,7 @@ router.get('/:id', (req, res) => {
 // Redirect from Edit to Show (id)
 router.put('/:id', (req, res) => {
     db.Place.findByIdAndUpdate(req.params.id, req.body, { runValidators: true })
-        .then(updatedRest => res.redirect(`/places/${req.params.id}`))
+        .then(() => res.redirect(`/places/${req.params.id}`))
         .catch(err => res.render('error404'))
 });
 
@@ -58,6 +58,10 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     db.Place.findByIdAndDelete(req.params.id)
         .then(deletedRest => res.status(303).redirect('/places'))
+        .catch(err => {
+            console.log('error', err);
+            res.render('error404')
+        })
 });
 
 // Edit
