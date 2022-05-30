@@ -13,16 +13,13 @@ function idInfo(data) {
     )
 
     if (data.place.comments.length) {
-        let sumRatings = data.place.comments.reduce((tot, c) => {
-            return tot + c.stars
-        }, 0)
+        let sumRatings = data.place.comments.reduce((tot, c) => tot + c.stars, 0)
 
         let avergaeRating = Math.round(sumRatings / data.place.comments.length)
 
-        // The stars don't render
         let stars = ''
         for (let i = 0; i < avergaeRating; i++) {
-            stars += <i class="fa fa-star"></i>
+            stars += '⭐'
         }
         
         rating = <h3>{stars} stars</h3>
@@ -31,7 +28,7 @@ function idInfo(data) {
             return (
                 <div className='border' key={c.id}>
                     <h2 className='rant'>
-                        {c.rant ? 'Rant! >:v' : 'Rave! <3'}
+                        {c.rant ? 'Rant! 😡' : 'Rave! ❤'}
                     </h2>
                     <h4>{c.content}</h4>
                     <h3>
